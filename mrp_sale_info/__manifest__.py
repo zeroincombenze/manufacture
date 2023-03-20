@@ -5,21 +5,22 @@
 {
     "name": "MRP Sale Info",
     "summary": "Adds sale information to Manufacturing models",
-    "version": "14.0.2.0.0",
+    "version": "12.0.2.0.0",
     "category": "Manufacturing",
     "website": "https://github.com/OCA/manufacture",
-    "author": "AvanzOSC, " "Tecnativa, " "Odoo Community Association (OCA)",
+    "author": "AvanzOSC, "
+              "Tecnativa, "
+              "Odoo Community Association (OCA)",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    'installable': True,
     "depends": [
         "mrp",
-        "sale",
         "sale_stock",
     ],
     "data": [
         "views/mrp_production.xml",
         "views/mrp_workorder.xml",
         "views/sale_order.xml",
-    ],
+    ]
 }

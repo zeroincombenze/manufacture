@@ -1,2 +1,2 @@
-* Jordi Ballester <jordi.ballester@forgeflow.com>
-* Lois Rilo <lois.rilo@forgeflow.com>
+* Jordi Ballester (EFICENT) <jordi.ballester@eficent.com>.
+

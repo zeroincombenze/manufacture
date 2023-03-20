@@ -11,7 +11,9 @@ class StockMove(models.Model):
         compute_sudo=True,
     )
 
-    @api.depends("product_id.product_tmpl_id.allow_partial_kit_delivery", "state")
+    @api.depends(
+        "product_id.product_tmpl_id.allow_partial_kit_delivery", "state"
+    )
     def _compute_allow_partial_kit_delivery(self):
         """Take it from the product only if it's a kit"""
         self.write({"allow_partial_kit_delivery": True})
@@ -19,16 +21,25 @@ class StockMove(models.Model):
             lambda x: x.product_id and x.state not in ["done", "cancel"]
         ):
             # If it isn't a kit it will always be True
-            if not move.bom_line_id or move.bom_line_id.bom_id.type != "phantom":
+            if (
+                not move.bom_line_id or move.bom_line_id.bom_id.type != "phantom"
+            ):
                 move.allow_partial_kit_delivery = True
                 continue
             move.allow_partial_kit_delivery = (
                 move.bom_line_id.bom_id.product_tmpl_id.allow_partial_kit_delivery
             )
 
+    def _prepare_phantom_move_values(self, bom_line, quantity):
+        """TODO: Not necessary in Odoo 13 or if this PR gets merged someday:
+        https://github.com/odoo/odoo/pull/67536"""
+        vals = super()._prepare_phantom_move_values(bom_line, quantity)
+        vals["bom_line_id"] = bom_line.id
+        return vals
+
     def _check_backorder_moves(self):
         """Check if there are partial deliveries on any set of moves. The
-        computing is done in the same way the main picking method does it"""
+        computing is done in the same way the main picking method does it """
         quantity_todo = {}
         quantity_done = {}
         for move in self:
@@ -37,7 +48,7 @@ class StockMove(models.Model):
             quantity_todo[move.product_id.id] += move.product_uom_qty
             quantity_done[move.product_id.id] += move.quantity_done
         for ops in self.mapped("move_line_ids").filtered(
-            lambda x: x.package_id and not x.product_id and not x.move_id
+                lambda x: x.package_id and not x.product_id and not x.move_id
         ):
             for quant in ops.package_id.quant_ids:
                 quantity_done.setdefault(quant.product_id.id, 0)
@@ -46,7 +57,12 @@ class StockMove(models.Model):
             lambda x: x.product_id and not x.move_id
         ):
             quantity_done.setdefault(pack.product_id.id, 0)
-            quantity_done[pack.product_id.id] += pack.product_uom_id._compute_quantity(
-                pack.qty_done, pack.product_id.uom_id
+            quantity_done[pack.product_id.id] += (
+                pack.product_uom_id._compute_quantity(
+                    pack.qty_done, pack.product_id.uom_id
+                )
             )
-        return any(quantity_done[x] < quantity_todo.get(x, 0) for x in quantity_done)
+        return any(
+            quantity_done[x] < quantity_todo.get(x, 0)
+            for x in quantity_done
+        )

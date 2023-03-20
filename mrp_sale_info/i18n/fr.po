@@ -31,36 +31,6 @@ msgid "Customer"
 msgstr "Client"
 
 #. module: mrp_sale_info
-#: model:ir.model.fields,field_description:mrp_sale_info.field_mrp_production__client_order_ref
-#: model:ir.model.fields,field_description:mrp_sale_info.field_mrp_workorder__client_order_ref
-msgid "Customer Reference"
-msgstr ""
-
-#. module: mrp_sale_info
-#: model:ir.model.fields,field_description:mrp_sale_info.field_mrp_production__display_name
-#: model:ir.model.fields,field_description:mrp_sale_info.field_mrp_workorder__display_name
-#: model:ir.model.fields,field_description:mrp_sale_info.field_sale_order__display_name
-#: model:ir.model.fields,field_description:mrp_sale_info.field_stock_rule__display_name
-msgid "Display Name"
-msgstr ""
-
-#. module: mrp_sale_info
-#: model:ir.model.fields,field_description:mrp_sale_info.field_mrp_production__id
-#: model:ir.model.fields,field_description:mrp_sale_info.field_mrp_workorder__id
-#: model:ir.model.fields,field_description:mrp_sale_info.field_sale_order__id
-#: model:ir.model.fields,field_description:mrp_sale_info.field_stock_rule__id
-msgid "ID"
-msgstr ""
-
-#. module: mrp_sale_info
-#: model:ir.model.fields,field_description:mrp_sale_info.field_mrp_production____last_update
-#: model:ir.model.fields,field_description:mrp_sale_info.field_mrp_workorder____last_update
-#: model:ir.model.fields,field_description:mrp_sale_info.field_sale_order____last_update
-#: model:ir.model.fields,field_description:mrp_sale_info.field_stock_rule____last_update
-msgid "Last Modified on"
-msgstr ""
-
-#. module: mrp_sale_info
 #: model:ir.model.fields,field_description:mrp_sale_info.field_sale_order__production_ids
 #: model_terms:ir.ui.view,arch_db:mrp_sale_info.view_order_form
 msgid "Production"
@@ -77,19 +47,14 @@ msgid "Production Order"
 msgstr ""
 
 #. module: mrp_sale_info
-#: model_terms:ir.ui.view,arch_db:mrp_sale_info.mrp_production_workorder_form_view_inherit
-msgid "Sale information"
+#: model:ir.model,name:mrp_sale_info.model_sale_order
+msgid "Sale Order"
 msgstr ""
 
 #. module: mrp_sale_info
 #: model:ir.model.fields,field_description:mrp_sale_info.field_mrp_production__sale_id
 #: model:ir.model.fields,field_description:mrp_sale_info.field_mrp_workorder__sale_id
 msgid "Sale order"
-msgstr ""
-
-#. module: mrp_sale_info
-#: model:ir.model,name:mrp_sale_info.model_sale_order
-msgid "Sales Order"
 msgstr ""
 
 #. module: mrp_sale_info
@@ -113,4 +78,10 @@ msgstr ""
 #. module: mrp_sale_info
 #: model:ir.model,name:mrp_sale_info.model_mrp_workorder
 msgid "Work Order"
+msgstr ""
+
+#. module: mrp_sale_info
+#: model:ir.model.fields,help:mrp_sale_info.field_mrp_production__partner_id
+#: model:ir.model.fields,help:mrp_sale_info.field_mrp_workorder__partner_id
+msgid "You can find a customer by its Name, TIN, Email or Internal Reference."
 msgstr ""

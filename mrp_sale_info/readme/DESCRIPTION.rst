@@ -4,4 +4,3 @@ Manufacturing Orders and Work Orders:
   * Sale order
   * Customer
   * Commitment Date
-  * Customer Reference

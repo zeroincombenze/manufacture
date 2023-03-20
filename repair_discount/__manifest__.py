@@ -4,15 +4,14 @@
 
 {
     "name": "Repair Discount",
-    "version": "14.0.1.0.0",
+    "version": "12.0.1.0.1",
     "category": "Manufacturing",
     "license": "AGPL-3",
-    "author": "Agile Business Group, " "Tecnativa, " "Odoo Community Association (OCA)",
+    "author": "Agile Business Group, "
+              "Tecnativa, "
+              "Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/manufacture",
-    "depends": ["repair"],
-    "data": [
-        "views/mrp_repair_view.xml",
-        "report/repair_templates_repair_order.xml",
-    ],
+    'depends': ['repair'],
+    "data": ["views/mrp_repair_view.xml"],
     "installable": True,
 }

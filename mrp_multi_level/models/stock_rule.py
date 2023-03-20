@@ -15,7 +15,6 @@ class StockRule(models.Model):
         location_id,
         name,
         origin,
-        company_id,
         values,
         bom,
     ):
@@ -26,7 +25,6 @@ class StockRule(models.Model):
             location_id,
             name,
             origin,
-            company_id,
             values,
             bom,
         )

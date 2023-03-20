@@ -3,27 +3,16 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
 from datetime import datetime
-
-from odoo import models
+from odoo import api, models
 
 
 class MrpProduction(models.Model):
-    _inherit = "mrp.production"
+    _inherit = 'mrp.production'
 
+    @api.multi
     def action_progress(self):
-        self.write(
-            {
-                "state": "progress",
-                "date_start": datetime.now(),
-            }
-        )
-        return True
-
-    def action_unstart(self):
-        self.write(
-            {
-                "state": "confirmed",
-                "date_start": False,
-            }
-        )
+        self.write({
+            'state': 'progress',
+            'date_start': datetime.now(),
+        })
         return True

@@ -1,4 +1,4 @@
-13.0.1.5.0 (2020-04-09)
+12.0.2.1.0 (2020-04-09)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 **Features**
@@ -6,15 +6,14 @@
 - Show *Run MRP Multi Level* menu only to a specific new security group *Run MRP Manually*. (`#492 <https://github.com/OCA/manufacture/issues/492>`_)
 
 
-13.0.1.4.0 (2020-03-26)
+12.0.2.0.0 (2020-03-31)
 ~~~~~~~~~~~~~~~~~~~~~~~
+* Improving the management of planned orders:
+
   * Add menu entry for planned orders
   * Add button to navigate from planned orders to linked manufacturing orders
   * Add action to convert planned orders to fixed
   * When changing the due date in a planned order the release date is recomputed
-
-13.0.1.3.0 (2020-03-02)
-~~~~~~~~~~~~~~~~~~~~~~~
 
 * [IMP] Minor changes"
   (`#470 <https://github.com/OCA/manufacture/pull/470>`_).
@@ -26,18 +25,12 @@
   * Make MRP Inventory creation more extensible.
   * Main Supplier computation (v13 requires explicit False definitions)
 
-13.0.1.2.0 (2020-02-20)
-~~~~~~~~~~~~~~~~~~~~~~~
-
 * [IMP] Minor changes
   (`#468 <https://github.com/OCA/manufacture/pull/468>`_).
 
   * Planned Orders become fixed on manual creation by default
   * Released Quantity becomes readonly
   * Add product reference if Planned Order name is not defined on bom explosion
-
-13.0.1.1.0 (2020-02-21)
-~~~~~~~~~~~~~~~~~~~~~~~
 
 * [FIX] Minor changes
   (`#469 <https://github.com/OCA/manufacture/pull/469>`_).
@@ -52,10 +45,6 @@
   * Show supply method on MRP Inventory
   * Allow no-MRP users to look into Products
 
-13.0.1.0.0 (2019-12-18)
-~~~~~~~~~~~~~~~~~~~~~~~
-
-* [MIG] Migration to v13.
 
 12.0.1.0.0 (2019-08-05)
 ~~~~~~~~~~~~~~~~~~~~~~~

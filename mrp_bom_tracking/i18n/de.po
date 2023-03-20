@@ -30,7 +30,6 @@ msgstr ""
 
 #. module: mrp_bom_tracking
 #: model_terms:ir.ui.view,arch_db:mrp_bom_tracking.track_bom_line_template
-#: model_terms:ir.ui.view,arch_db:mrp_bom_tracking.track_bom_template
 msgid ""
 "<br/>\n"
 "                    Product Unit of Measure:"
@@ -63,9 +62,13 @@ msgid "BoM Type"
 msgstr ""
 
 #. module: mrp_bom_tracking
-#: model:ir.model.fields,help:mrp_bom_tracking.field_mrp_bom__product_id
-msgid ""
-"If a product variant is defined the BOM is available only for this product."
+#: selection:mrp.bom,type:0
+msgid "Kit"
+msgstr ""
+
+#. module: mrp_bom_tracking
+#: selection:mrp.bom,type:0
+msgid "Manufacture this product"
 msgstr ""
 
 #. module: mrp_bom_tracking
@@ -80,13 +83,7 @@ msgstr ""
 
 #. module: mrp_bom_tracking
 #: model_terms:ir.ui.view,arch_db:mrp_bom_tracking.track_bom_line_template
-#: model_terms:ir.ui.view,arch_db:mrp_bom_tracking.track_bom_template
 msgid "Product Quantity:"
-msgstr ""
-
-#. module: mrp_bom_tracking
-#: model:ir.model.fields,field_description:mrp_bom_tracking.field_mrp_bom__product_id
-msgid "Product Variant"
 msgstr ""
 
 #. module: mrp_bom_tracking
@@ -97,6 +94,11 @@ msgstr ""
 #. module: mrp_bom_tracking
 #: model:ir.model.fields,field_description:mrp_bom_tracking.field_mrp_bom__code
 msgid "Reference"
+msgstr ""
+
+#. module: mrp_bom_tracking
+#: selection:mrp.bom,type:0
+msgid "Subcontracting"
 msgstr ""
 
 #. module: mrp_bom_tracking

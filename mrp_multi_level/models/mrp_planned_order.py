@@ -1,5 +1,5 @@
 # Copyright 2019 ForgeFlow S.L. (https://www.forgeflow.com)
-# - Lois Rilo Antelo <lois.rilo@forgeflow.com>
+# - Lois Rilo Antelo <lois.rilo@eficent.com>
 # License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl.html).
 from datetime import timedelta
 
@@ -12,13 +12,11 @@ class MrpPlannedOrder(models.Model):
     _order = "due_date, id"
 
     name = fields.Char(string="Description")
-    origin = fields.Char(string="Source Document")
     product_mrp_area_id = fields.Many2one(
         comodel_name="product.mrp.area",
         string="Product MRP Area",
         index=True,
         required=True,
-        ondelete="cascade",
     )
     mrp_area_id = fields.Many2one(
         comodel_name="mrp.area",
@@ -29,8 +27,8 @@ class MrpPlannedOrder(models.Model):
         readonly=True,
     )
     company_id = fields.Many2one(
-        comodel_name="res.company",
-        related="product_mrp_area_id.mrp_area_id.warehouse_id.company_id",
+        comodel_name='res.company',
+        related='product_mrp_area_id.mrp_area_id.warehouse_id.company_id',
         store=True,
     )
     product_id = fields.Many2one(
@@ -58,14 +56,12 @@ class MrpPlannedOrder(models.Model):
         string="MRP Move DOWN",
     )
     mrp_action = fields.Selection(
-        selection=[
-            ("manufacture", "Manufacturing Order"),
-            ("buy", "Purchase Order"),
-            ("pull", "Pull From"),
-            ("push", "Push To"),
-            ("pull_push", "Pull & Push"),
-            ("none", "None"),
-        ],
+        selection=[("manufacture", "Manufacturing Order"),
+                   ("buy", "Purchase Order"),
+                   ('pull', 'Pull From'),
+                   ('push', 'Push To'),
+                   ('pull_push', 'Pull & Push'),
+                   ("none", "None")],
         string="Action",
     )
     mrp_inventory_id = fields.Many2one(
@@ -77,11 +73,6 @@ class MrpPlannedOrder(models.Model):
         "mrp.production", "planned_order_id", string="Manufacturing Orders"
     )
     mo_count = fields.Integer(compute="_compute_mrp_production_count")
-    mrp_planner_id = fields.Many2one(
-        related="product_mrp_area_id.mrp_planner_id",
-        readonly=True,
-        store=True,
-    )
 
     def _compute_mrp_production_count(self):
         for rec in self:
@@ -108,8 +99,8 @@ class MrpPlannedOrder(models.Model):
             rec.fixed = not rec.fixed
 
     def action_open_linked_mrp_production(self):
-        xmlid = "mrp.mrp_production_action"
-        result = self.env["ir.actions.act_window"]._for_xml_id(xmlid)
+        action = self.env.ref("mrp.mrp_production_action")
+        result = action.read()[0]
         result["context"] = {}
         result["domain"] = "[('id','in',%s)]" % self.mrp_production_ids.ids
         return result

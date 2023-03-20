@@ -1,2 +1,1 @@
-* Lois Rilo <lois.rilo@forgeflow.com>
-* Sudhir Arya <sudhir@erpharbor.com>
+* Lois Rilo <lois.rilo@eficent.com>

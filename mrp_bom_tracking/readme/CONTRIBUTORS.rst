@@ -1,3 +1,2 @@
-* Miquel Raïch <miquel.raich@forgeflow.com>
-* Lois Rilo <lois.rilo@forgeflow.com>
-* Joan Sisquella <joan.sisquella@forgeflow.com>
+* Miquel Raïch <miquel.raich@eficent.com>
+* Lois Rilo <lois.rilo@eficent.com>
